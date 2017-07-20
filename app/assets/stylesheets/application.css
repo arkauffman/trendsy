@@ -16,6 +16,8 @@
 
 body {
     background-color: #eee9e9;
+    color: #cdb79e;
+    font-family: 'Fresca', sans-serif;
 }
 
 h1 {
@@ -23,9 +25,56 @@ h1 {
     text-align: center;
     font-size: 40px;
     font-weight: 600;
-    color: #cdb79e;
-    padding: 10px;
     padding-bottom: 30px;
+}
+
+h3 {
+    padding: 20px;
+    font-weight: 600;
+}
+
+label {
+    padding: 30px;
+    font-size: 20px;
+}
+
+input {
+    text-align: center;
+}
+
+#email {
+    margin: 0 50px;
+    padding: 5px;
+}
+
+#password {
+    margin: 0 15px;
+    padding: 5px;
+}
+
+.actions {
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+}
+
+a {
+    color: #cdb79e;
+    padding: 2px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+a:hover {
+    color: #777;
+}
+
+.notice {
+    text-align: center;
+}
+
+#welcome {
+    padding: 10px;
 }
 
 ul, li {
