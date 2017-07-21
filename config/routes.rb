@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   root to: 'users#index'
   get 'checkout', to: 'users#checkout'
   get 'profile/:id', to: 'users#profile', as: :profile
-  get 'upload/:id', to: 'users#upload', as: :upload
   get 'manage', to: 'users#manage'
   delete 'users/:id', to: 'users#destroy', as: :destroy
   resources :users
+
+  get 'upload/:id', to: 'products#upload', as: :upload
+  resources :products
   
   get 'sessions', to: 'sessions#index'
   resources :users, only: [:new, :create, :edit, :update]

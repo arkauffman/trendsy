@@ -4,16 +4,18 @@
     <title>Trendsy</title>
     <%= csrf_meta_tags %>
 
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/css/materialize.min.css">
+    
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/js/materialize.min.js"></script>
+    
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Fresca|Indie+Flower" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -22,32 +24,29 @@
 
   <body>
 
-    <nav class="navbar navbar-default" role="navigation">
-      <ul class="nav navbar-nav">
-        <li>
-          <% if current_user %>
-              <%= link_to upload_path(current_user), id: "logo" do %>
+    <nav>
+      <div class="nav-wrapper">
+        <% if current_user %>
+              <%= link_to new_product_path, id: "logo" do %>
                   <span id="upload" class="glyphicon glyphicon-upload"></span>
+              <% end %>
+        <% end %>
+       
+        <ul class="right">
+          <li>
+            <%= link_to checkout_path, id: "logo" do %>
+              <span id= "cart" class="glyphicon glyphicon-shopping-cart"></span>
+            <% end %>
+          </li>
+          <li>
+            <% if current_user %>
+              <%= link_to profile_path(current_user), id: "logo" do %>
+                <span id= "settings" class="glyphicon glyphicon-cog"></span>
               <% end %>
             <% end %>
           </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">       
-        <li>
-          <%= link_to checkout_path, id: "logo" do %>
-              <span id= "cart" class="glyphicon glyphicon-shopping-cart"></span>
-          <% end %>
-        </li> 
-
-        <li>
-          <% if current_user %>
-            <%= link_to profile_path(current_user), id: "logo" do %>
-                <span id= "settings" class="glyphicon glyphicon-cog"></span>
-            <% end %>
-          <% end %>
-        </li> 
-        
-      </ul> 
+        </ul>
+      </div>
     </nav>
 
     <p id="welcome">

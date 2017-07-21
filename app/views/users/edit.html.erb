@@ -2,37 +2,59 @@
 
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
   <% end %>
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+
+  <div class="row">
+    <div class="input-field col s6 offset-s1"> 
+      <%= f.label :first_name, :class => "active" %>
+      <%= f.text_field :first_name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+
+  <div class="row">
+    <div class="input-field col s6 offset-s1">
+        <%= f.label :last_name, :class => "active" %>
+        <%= f.text_field :last_name %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+
+  <div class="row">
+    <div class="input-field col s6 offset-s1">
+        <%= f.label :email, :class => "active" %>
+        <%= f.text_field :email %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+
+  <div class="row">
+    <div class="input-field col s6 offset-s1">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+  
+  <div class="row">
+    <div class="input-field col s6 offset-s1">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
   </div>
+
   <div class="field">
     <%= f.file_field :image %><br><br>
   </div>
-  <div class="actions"><%= f.submit %></div>
+ 
+  <div class="upload_submit"><%= f.submit %></div>
 <% end %>
+
+
+    
+
+

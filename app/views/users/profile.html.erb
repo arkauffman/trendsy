@@ -1,33 +1,42 @@
 <div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="space">
-                <li>
-                    <h4><%= link_to  "Edit Profile", edit_user_path(current_user) %></h4>
-                    <% if @user.image.exists? %>
-                        <%= image_tag @user.image.url %> 
-                    <% else %>
-                        <%= image_tag("paint.jpg", :class => "img-responsive") %>
-                    <% end %>
-                </li> 
+    <div class="row"
+        <div class="divider"></div>
+            <div class="section">
+                <div class="row">
+                    <div class="col s3 offset-s3">
+                        <h4><%= link_to "Edit Profile", edit_user_path(current_user) %></h4>
+                    </div>
+                    <div class="col s3">
+                        <% if @user.image.exists? %>
+                            <%= image_tag @user.image.url, :class => "img-responsive", :width => "350" %> 
+                        <% else %>
+                            <%= image_tag("paint.jpg", :class => "img-responsive", :width => "350") %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        <div class="divider"></div>
+        <div class="section">
+            <div class="row">
+                <div class="col s3 offset-s3">
+                    <h4> Manage Products </h4>
+                </div>
+                <div class="col s3">
+                    <%= image_tag("set.png", :class => "img-responsive", :width => "350") %>
+                </div>
             </div>
         </div>
-        <div class="col-sm-4">
-            <div class="space">
-                <li>
-                <h4> Manage Products </h4>
-
-                    <%= image_tag("set.png", :class => "img-responsive") %>
-                </li>
+        <div class="divider"></div>
+        <div class="section">
+            <div class="row">
+                <div class="col s3 offset-s3">
+                    <h4> <%= link_to "Delete Account", destroy_path(current_user), method: :delete %></h4>
+                </div>
+                <div class="col s3">
+                    <%= image_tag("puppy.jpg", :class => "img-responsive", :width => "350") %>   
+                </div>
             </div>
         </div>
-        <div class="col-sm-4">
-            <div class="space">
-                <li>
-                <h4> <%= link_to "Delete Account", destroy_path(current_user), method: :delete %></h4>
-                    <%= image_tag("puppy.jpg", :class => "img-responsive") %>  
-                </li>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
+

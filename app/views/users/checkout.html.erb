@@ -1,44 +1,44 @@
 <h3>Check Out</h3>
-
-
-<%= form_tag root_path do %>
-    <div class="field">
-        <%= label_tag :first_name %>
-        <%= text_field_tag :first_name %>
+  <%= form_for @user do |f| %>
+    <div class="row">
+      <div class="input-field col s6 offset-s1">
+        <input id="title" type="text" class="validate">
+          <label>First Name</label>
+      </div>
     </div>
-    <div class="field">
-        <%= label_tag :last_name %>
-        <%= text_field_tag :last_name %>
+    <div class="row">
+      <div class="input-field col s6 offset-s1">
+        <input id="price" type="text" class="validate">
+          <label>Last Name</label>
+      </div>
     </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s1">
+        <input disabled value="Credit card: 1234 5678 9101 2131" id="disabled" type="text" class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s1">
+        <input disabled value="CVV: 123" id="disabled" type="text" class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s1">
+        <input disabled value="EXP: 12/22" id="disabled" type="text" class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s1">
+        <input disabled value="Shipping/Billing Address: 1 Los Angeles Ave. Los Angeles, CA 90210" id="disabled" type="text" class="validate">
+      </div>
+    </div>
+       
+  <div class="submit-check" >
+      <button id="checkout-submit">
+      <%= link_to "Submit", root_path %>
+      </button>
+  </div>
+
 <% end %>
-
-<form>
-  <label> Credit Card </label>
-  <input id="c-c" type="text" name="lastname" value="1234 5678 9101 2131" readonly="readonly">
-</form>  
-
-<form>  
-  <label> CVV </label>
-  <input id="cvv" type="text" name="lastname" value="123" readonly="readonly">
-</form>
-
-<form>
-  <label> Exp </label>
-  <input id="exp" type="text" name="lastname" value="12/22" readonly="readonly">
-</form>
-
-<form>
-  <label> Shipping/Billing Address </label>
-  <input id="address-one" type="text" name="lastname" value="1 Los Angeles Ave." readonly="readonly">
-  <br><input id="address-two"  type="text" name="lastname" value="Los Angeles, CA 90210" readonly="readonly">
-</form>
-
-<div class="submit-check" >
-    <button id="checkout-submit">
-    <%= link_to "Submit", root_path %>
-    </button>
-</div>
-
-
 
 

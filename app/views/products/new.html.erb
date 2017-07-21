@@ -1,0 +1,40 @@
+<h3> Upload </h3>
+
+<%= form_for @product do |f| %>
+  <div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s6 offset-s1">
+        <input id="title" type="text" class="validate">
+        <%= f.label :title %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s1">
+        <input id="price" type="text" class="validate">
+          <%= f.label :price %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s1">
+        <input id="quantity" type="text" class="validate">
+          <%= f.label :quantity %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s1">
+        <input id="description" type="text" class="validate">
+        <%= f.label :description %>
+      </div>
+    </div>
+  </form>
+</div>  
+
+<div class="row">
+  <div class="input-field s6 col">
+    <%= f.file_field :image %><br><br>
+  </div>
+</div>
+  
+<div class="upload_submit"><%= f.submit %></div>
+<% end %>
