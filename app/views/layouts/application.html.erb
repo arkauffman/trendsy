@@ -24,11 +24,30 @@
 
     <nav class="navbar navbar-default" role="navigation">
       <ul class="nav navbar-nav">
-        <li><a href="#"><span class="glyphicon glyphicon-upload"></span></a></li>
+        <li>
+          <% if current_user %>
+              <%= link_to upload_path(current_user), id: "logo" do %>
+                  <span id="upload" class="glyphicon glyphicon-upload"></span>
+              <% end %>
+            <% end %>
+          </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span id= "settings" class="glyphicon glyphicon-cog"></span></a></li>
-      </ul>   
+      <ul class="nav navbar-nav navbar-right">       
+        <li>
+          <%= link_to checkout_path, id: "logo" do %>
+              <span id= "cart" class="glyphicon glyphicon-shopping-cart"></span>
+          <% end %>
+        </li> 
+
+        <li>
+          <% if current_user %>
+            <%= link_to profile_path(current_user), id: "logo" do %>
+                <span id= "settings" class="glyphicon glyphicon-cog"></span>
+            <% end %>
+          <% end %>
+        </li> 
+        
+      </ul> 
     </nav>
 
     <p id="welcome">
@@ -43,7 +62,7 @@
       <% end %>
     </p>
 
-    <h1> Trendsy </h1>
+    <h1><%= link_to "Trendsy", root_path %></h1>
 
     <%= yield %>
   </body>

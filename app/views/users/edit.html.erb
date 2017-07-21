@@ -1,4 +1,5 @@
-<h3>Sign Up</h3>
+<h3> Edit Profile </h3>
+
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div class="error_messages">
@@ -33,6 +34,5 @@
   <div class="field">
     <%= f.file_field :image %><br><br>
   </div>
-
   <div class="actions"><%= f.submit %></div>
 <% end %>

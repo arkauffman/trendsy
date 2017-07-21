@@ -25,7 +25,7 @@ h1 {
     text-align: center;
     font-size: 40px;
     font-weight: 600;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 h3 {
@@ -33,13 +33,25 @@ h3 {
     font-weight: 600;
 }
 
+h4 {
+    padding: 50px;
+    padding-right: 50px;
+    font-weight: 500;
+    float: center;
+}
+
 label {
-    padding: 30px;
+    padding: 20px;
     font-size: 20px;
 }
 
-input {
-    text-align: center;
+#cart {
+    padding: 0 10px;
+}
+
+#cart:hover, #upload:hover {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
 #email {
@@ -52,10 +64,68 @@ input {
     padding: 5px;
 }
 
+#user_first_name {
+    margin: 0 97px;
+} 
+
+#user_last_name {
+    margin: 0 98px;
+}
+
+#user_email {
+    margin: 0 140px;
+}
+
+#user_password {
+    margin: 0 106px;
+}
+
 .actions {
     text-align: center;
+    padding: 50px;
+}
+
+.submit-check {
+    text-align: center;
+    padding: 50px;
+}
+
+input[type=submit], #checkout-submit {
+    width: 10em;  height: 3em;
+}
+
+#user_image {
     padding: 20px;
-    margin: 10px;
+    color: #cdb79e; 
+}
+
+#notice {
+    text-align: center;
+    font-size: 20px;
+}
+
+#first_name {
+   margin: 0px 102px; 
+}
+
+#last_name {
+    margin: 0px 103px;
+}
+
+#c-c {
+    margin: 0px 99px;
+}
+
+#cvv {
+    margin: 0px 158px;
+}
+
+#exp {
+    margin: 0px 163px;
+}
+
+#address-two {
+    margin: 0px 233px;
 }
 
 a {
@@ -69,8 +139,9 @@ a:hover {
     color: #777;
 }
 
-.notice {
+.notice, #alert {
     text-align: center;
+    font-size: 15px;
 }
 
 #welcome {
@@ -85,8 +156,7 @@ ul, li {
 img {  
     height: 100px;
     padding: 20px;
-    padding-bottom: 20px;
- 
+    padding-bottom: 20px; 
 }
 
 .nav {
@@ -97,7 +167,7 @@ img {
     padding-right: 15px;
 }
 
-.img-responsive {
+.img-responsive, img {
      border: 6px solid white; 
 }
 
