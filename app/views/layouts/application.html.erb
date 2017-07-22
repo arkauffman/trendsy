@@ -14,8 +14,9 @@
     
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fresca|Indie+Flower" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -24,30 +25,38 @@
 
   <body>
 
-    <nav>
-      <div class="nav-wrapper">
-        <% if current_user %>
+  <nav>
+    <div class="nav-wrapper">
+      <%= link_to root_path, id: "logo" do %>
+        <div class="brand-logo">
+          <i class="material-icons">home</i>
+        </div>
+      <% end %>
+      <ul class="right">
+        <li>
+          <% if current_user %>
               <%= link_to new_product_path, id: "logo" do %>
-                  <span id="upload" class="glyphicon glyphicon-upload"></span>
+                  <i class="material-icons">file_upload</span></i>
+                  
               <% end %>
-        <% end %>
-       
-        <ul class="right">
-          <li>
+          <% end %>
+        </li>
+        <li>
             <%= link_to checkout_path, id: "logo" do %>
-              <span id= "cart" class="glyphicon glyphicon-shopping-cart"></span>
+              <i class="material-icons">shopping_cart</span></i>
             <% end %>
-          </li>
-          <li>
-            <% if current_user %>
+        </li>
+        <li>
+          <% if current_user %>
               <%= link_to profile_path(current_user), id: "logo" do %>
-                <span id= "settings" class="glyphicon glyphicon-cog"></span>
+                <i class="material-icons">settings</span></i>
               <% end %>
             <% end %>
-          </li>
-        </ul>
-      </div>
-    </nav>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
 
     <p id="welcome">
       <% if current_user %>
