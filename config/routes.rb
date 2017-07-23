@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   get 'profile/:id', to: 'users#profile', as: :profile
   get 'manage', to: 'users#manage'
   delete 'users/:id', to: 'users#destroy', as: :destroy
-  resources :users
+  
+  resources :users do
+    resources :products
+  end
 
   get 'upload/:id', to: 'products#upload', as: :upload
-  resources :products
   
   get 'sessions', to: 'sessions#index'
   resources :users, only: [:new, :create, :edit, :update]

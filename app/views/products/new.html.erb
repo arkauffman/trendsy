@@ -1,40 +1,39 @@
 <h3> Upload </h3>
 
-<%= form_for @product do |f| %>
-  <div class="row">
-  <form class="col s12">
+<%= form_tag user_products_path(current_user) do %>
     <div class="row">
-      <div class="input-field col s6 offset-s1">
-        <input id="title" type="text" class="validate">
-        <%= f.label :title %>
-      </div>
+        <div class="input-field col s6 offset-s1">
+            <%= label_tag :title %>
+            <%= text_field_tag :title %>
+        </div>
     </div>
     <div class="row">
-      <div class="input-field col s6 offset-s1">
-        <input id="price" type="text" class="validate">
-          <%= f.label :price %>
-      </div>
+        <div class="input-field col s6 offset-s1">
+            <%= label_tag :price %>
+            <%= text_field_tag :price %>
+        </div>
     </div>
     <div class="row">
-      <div class="input-field col s6 offset-s1">
-        <input id="quantity" type="text" class="validate">
-          <%= f.label :quantity %>
-      </div>
+        <div class="input-field col s6 offset-s1">
+            <%= label_tag :quantity %>
+            <%= text_field_tag :quantity %>
+        </div>
     </div>
     <div class="row">
-      <div class="input-field col s6 offset-s1">
-        <input id="description" type="text" class="validate">
-        <%= f.label :description %>
+        <div class="input-field col s6 offset-s1">
+            <%= label_tag :description %>
+            <%= text_field_tag :description %>
+        </div>
+    </div>
+    <div class="row">
+      <div class="input-field s5 col">
+        <%= file_field_tag :image %><br><br>
       </div>
     </div>
-  </form>
-</div>  
 
-<div class="row">
-  <div class="input-field s6 col">
-    <%= f.file_field :image %><br><br>
-  </div>
-</div>
-  
-<div class="upload_submit"><%= f.submit %></div>
+    <div class="actions"><%= submit_tag "Upload" %></div>
 <% end %>
+
+
+  
+ 

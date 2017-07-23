@@ -3,7 +3,7 @@
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
       <div class="error_messages">
-        <h2>Form is invalid</h2>
+        <h5>Form is invalid</h5>
         <ul>
           <% for message in @user.errors.full_messages %>
             <li><%= message %></li>
@@ -47,8 +47,10 @@
     </div>
   </div>
 
-  <div class="field">
-    <%= f.file_field :image %><br><br>
+  <div class="row">
+    <div class="input-field col s5">
+      <%= f.file_field :image %><br><br>
+    </div>
   </div>
 
   <div class="upload_submit"><%= f.submit %></div>
