@@ -22,11 +22,21 @@
                     <h4> <%= link_to "Manage Products", products_path %></h4>
                 </div>
                 <div class="col s3">
-                    <%= image_tag("set.png", :class => "img-responsive", :width => "350") %>
+                    <%= image_tag("ring.jpg", :class => "img-responsive", :width => "350") %>
                 </div>
             </div>
         </div>
         <div class="divider"></div>
+        <div class="section">
+            <div class="row">
+                <div class="col s3 offset-s3">
+                    <h4> <%= link_to "Order History", orders_path(@order) %></h4>
+                </div>
+                <div class="col s3">
+                    <%= image_tag("flower.jpg", :class => "img-responsive", :width => "350") %>
+                </div>
+            </div>
+        </div>
         <div class="section">
             <div class="row">
                 <div class="col s3 offset-s3">

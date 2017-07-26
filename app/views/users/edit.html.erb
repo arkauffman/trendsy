@@ -11,35 +11,30 @@
         </ul>
       </div>
   <% end %>
-
   <div class="row">
     <div class="input-field col s6 offset-s1"> 
       <%= f.label :first_name, :class => "active" %>
       <%= f.text_field :first_name %>
     </div>
   </div>
-
   <div class="row">
     <div class="input-field col s6 offset-s1">
         <%= f.label :last_name, :class => "active" %>
         <%= f.text_field :last_name %>
       </div>
   </div>
-
   <div class="row">
     <div class="input-field col s6 offset-s1">
         <%= f.label :email, :class => "active" %>
         <%= f.text_field :email %>
     </div>
   </div>
-
   <div class="row">
     <div class="input-field col s6 offset-s1">
       <%= f.label :password %>
       <%= f.password_field :password %>
     </div>
-  </div>
-  
+  </div> 
   <div class="row">
     <div class="input-field col s6 offset-s1">
       <%= f.label :password_confirmation, :class => "active" %>
@@ -51,11 +46,7 @@
       <%= f.file_field :image %><br><br>
     </div>
   </div>
- 
-  <div class="upload_submit"><%= f.submit %></div>
+  <div class="upload_submit">
+    <%= f.submit "Update User", :class => "waves-effect waves-light btn" %>
+  </div>
 <% end %>
-
-
-    
-
-

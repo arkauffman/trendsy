@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'products#home'
-  get 'checkout', to: 'users#checkout'
   get 'profile/:id', to: 'users#profile', as: :profile
   get 'manage', to: 'users#manage'
   delete 'users/:id', to: 'users#destroy', as: :destroy
@@ -12,6 +11,8 @@ Rails.application.routes.draw do
     resources :line_items, shallow: true
   end
   resources :orders
+
+  patch 'orders/:id/checkout', to: 'orders#checkout', as: :checkout
 
   get 'upload/:id', to: 'products#upload', as: :upload
   

@@ -1,37 +1,19 @@
-<% if @order.is_cart %>
-    <h3> Cart </h3>
-<% end %>
+<h3> Your Orders </h3>
 
-<table class="highlight">
+<table class="highlight" id="your_orders">
     <div class="col s8">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Quantity</th>
-                <th>Price</th>
                 <th>Date</th>
             </tr>
         </thead>
         <tbody>
-        <% @line_items.each do |item| %>
+        <% total = 0 %>
+        <% @orders.each do |order| %>
             <tr>
-                <td><%= link_to item.product.id, order_path(current_user.cart) %></td>
-                <td><%= item.product.title %></td>
-                <td><%= item.quantity %></td>
-                <td>ADD </td>
-                <td><%= item.created_at.to_formatted_s(:long) %></td>
+                <td><%= link_to order.updated_at.to_formatted_s(:long), order_path(order) %></td>
             </tr>
         <% end %>
         </tbody>
-    </div>
+        </div>
 </table>
-
-
-<% if @order.is_cart %>
-    <div class="upload_submit">
-        <button id="checkout">
-            Checkout 
-        </button>
-    </div>
-<% end %>

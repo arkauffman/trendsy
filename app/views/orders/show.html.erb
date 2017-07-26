@@ -1,43 +1,63 @@
 <% if @order.is_cart %>
     <h3> Cart </h3>
-
-    <table class="highlight">
-        <div class="col s8">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-            <% @line_items.each do |item| %>
-                <tr>
-                    <td><%= item.product.id %></td>
-                    <td><%= item.product.title %></td>
-                    <td><%= item.quantity %></td>
-                    <td>ADD </td>
-                    <td><%= item.created_at.to_formatted_s(:long) %></td>
-                </tr>
-            <% end %>
-            </tbody>
-            </div>
-    </table>
-
-
-    <div class="upload_submit">
-        <button id="checkout">
-            Checkout 
-        </button>
+    <div class="row">
+      <div class="input-field col s6 offset-s1">
+        <label class="active"> Credit Card </label>
+        <input disabled value="1234 5678 9101 2131" id="disabled" type="text" class="validate">
+      </div>
     </div>
-
-<% else %>
-    <div class="upload_submit">
-        <button id="checkout">
-            Previous Orders 
-        </button>
+    <div class="row">
+      <div class="input-field col s6 offset-s1">
+        <label class="active"> CVV </label>
+        <input disabled value="123" id="disabled" type="text" class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s1">
+        <label class="active"> EXP </label>
+        <input disabled value="12/22" id="disabled" type="text" class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s1">
+        <label class="active"> Shipping/Billing Address </label>
+        <input disabled value="1 Los Angeles Ave. Los Angeles, CA 90210" id="disabled" type="text" class="validate">
+      </div>
     </div>
 <% end %>
 
+<table class="highlight">
+    <div class="col s8">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Extended Price</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% total = 0 %>
+        <% @line_items.each do |item| %>
+            <tr>
+                <td><%= item.product.id %></td>
+                <td><%= item.product.title %></td>
+                <td><%= item.quantity %></td>
+                <td>$<%= item.product.price %></td>
+                <td>$<%= (item.product.price * item.quantity) %></td>
+            </tr>
+
+            <% total = total + (item.product.price * item.quantity) %>
+        <% end %>
+        </tbody>
+        </div>
+</table>
+
+<div class="total">
+    Total: $<%= total %>
+</div>
+
+<div class="upload_submit">
+    <%= link_to "Checkout", checkout_path(@order), method: :patch, :class => "waves-effect waves-light btn" if @order.is_cart && @order.line_items.length > 0 %>
+</div>

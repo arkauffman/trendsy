@@ -1,14 +1,17 @@
 class OrdersController < ApplicationController
-    # def index
-    #     @line_items = @order.line_items
-    #     @line_items.all
-    # end
-
+    def index
+        @orders = current_user.orders.order(created_at: :desc)
+    end
+    
     def show
         @order = Order.find(params[:id])
-        # able to say
         @line_items = @order.line_items
-
     end
 
+    def checkout
+        @order = Order.find(params[:id])
+        @order.is_cart = false
+        @order.save
+        redirect_to orders_path
+    end
 end

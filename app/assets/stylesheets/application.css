@@ -55,7 +55,7 @@ h6 {
     padding: 10px;
 }
 
-i:hover {
+nav i:hover {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
 }
@@ -68,13 +68,14 @@ i:hover {
 .upload_submit {
     text-align: center;
     padding: 10px;
+    padding-top: 75px;
 }
 
 .row {
     text-align: center;
 }
 
-input[type=submit], #checkout-submit {
+input[type=submit], #checkout-submit, a.waves-effect {
     width: 10em;  height: 3em;
 } 
 
@@ -130,7 +131,6 @@ img {
     padding: 0px 15px;
 }
 
-/* fsdjk */
 .space { 
     margin: 10px; 
     padding: 5px;
@@ -201,6 +201,17 @@ div.input-field div.field_with_errors:first-child {
     display: inline-block;
 }
 
+input {
+    margin: -20px;
+    margin-bottom: 20px;
+}
+
+ a.waves-effect {
+    padding-bottom: 30px;  
+    padding: 1px;
+    height: 36px;
+} 
+
 .show {
     float: left;
 }
@@ -219,4 +230,22 @@ div.input-field div.field_with_errors:first-child {
 table {
     width: 90%;
     margin: 50px;
+}
+
+td, th {
+    padding: 23px 50px;
+}
+
+.total {
+    margin-left: 52px;
+}
+
+/* #your_orders {
+    width: 20%;
+    margin-left:auto; 
+    margin-right:auto;
+} */
+
+.btn, .btn-large {
+    background-color: #ffab91;
 }
