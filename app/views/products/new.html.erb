@@ -1,39 +1,46 @@
 <h3> Upload </h3>
 
-<%= form_tag user_products_path(current_user) do %>
+<%= form_for @product do |f| %>
+    <% if @product.errors.any? %>
+        <div class="error_messages">
+            <h5>Form is invalid</h5>
+            <% for message in @product.errors.full_messages %>
+            <div class="messages"><%= message %></div>
+            <% end %>
+        </div>
+    <% end %>
+
+
     <div class="row">
         <div class="input-field col s6 offset-s1">
-            <%= label_tag :title %>
-            <%= text_field_tag :title %>
+            <%= f.label :title %>
+            <%= f.text_field :title %>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s6 offset-s1">
-            <%= label_tag :price %>
-            <%= text_field_tag :price %>
+            <%= f.label :price %>
+            <%= f.text_field :price, required: true %>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s6 offset-s1">
-            <%= label_tag :quantity %>
-            <%= text_field_tag :quantity %>
+            <%= f.label :quantity %>
+            <%= f.text_field :quantity %>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s6 offset-s1">
-            <%= label_tag :description %>
-            <%= text_field_tag :description %>
+            <%= f.label :description %>
+            <%= f.text_field :description %>
         </div>
     </div>
     <div class="row">
       <div class="input-field s5 col">
-        <%= file_field_tag :image %><br><br>
+        <%= f.file_field :image %><br><br>
       </div>
     </div>
 
     <div class="actions"><%= submit_tag "Upload" %></div>
 <% end %>
 
-
-  
- 

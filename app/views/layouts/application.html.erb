@@ -31,14 +31,16 @@
       <ul class="right">
         <li>
           <% if current_user %>
-              <%= link_to new_user_product_path(current_user), id: "logo" do %>
+              <%= link_to new_product_path, id: "logo" do %>
                   <i class="material-icons">file_upload</span></i>
               <% end %>
           <% end %>
         </li>
         <li>
-            <%= link_to checkout_path, id: "logo" do %>
-              <i class="material-icons">shopping_cart</span></i>
+            <% if current_user %>
+              <%= link_to order_path(current_user.cart), id: "logo" do %>
+                <i class="material-icons">shopping_cart</span></i>
+              <% end %>
             <% end %>
         </li>
         <li>

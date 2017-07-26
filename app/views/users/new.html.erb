@@ -4,32 +4,30 @@
   <% if @user.errors.any? %>
       <div class="error_messages">
         <h5>Form is invalid</h5>
-        <ul>
-          <% for message in @user.errors.full_messages %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+        <% for message in @user.errors.full_messages %>
+          <div class="messages"><%= message %></div>
+        <% end %>
       </div>
   <% end %>
 
   <div class="row">
     <div class="input-field col s6 offset-s1"> 
       <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
+      <%= f.text_field :first_name, :class => "active" %>
     </div>
   </div>
 
   <div class="row">
     <div class="input-field col s6 offset-s1">
-        <%= f.label :last_name%>
-        <%= f.text_field :last_name %>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, :class => "active" %>
       </div>
   </div>
 
   <div class="row">
     <div class="input-field col s6 offset-s1">
         <%= f.label :email %>
-        <%= f.text_field :email %>
+        <%= f.text_field :email, :type => "email", :class => "validate" %>
     </div>
   </div>
 

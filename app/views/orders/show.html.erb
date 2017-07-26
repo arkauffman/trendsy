@@ -1,0 +1,43 @@
+<% if @order.is_cart %>
+    <h3> Cart </h3>
+
+    <table class="highlight">
+        <div class="col s8">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @line_items.each do |item| %>
+                <tr>
+                    <td><%= item.product.id %></td>
+                    <td><%= item.product.title %></td>
+                    <td><%= item.quantity %></td>
+                    <td>ADD </td>
+                    <td><%= item.created_at.to_formatted_s(:long) %></td>
+                </tr>
+            <% end %>
+            </tbody>
+            </div>
+    </table>
+
+
+    <div class="upload_submit">
+        <button id="checkout">
+            Checkout 
+        </button>
+    </div>
+
+<% else %>
+    <div class="upload_submit">
+        <button id="checkout">
+            Previous Orders 
+        </button>
+    </div>
+<% end %>
+

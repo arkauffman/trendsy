@@ -24,7 +24,6 @@ class UsersController < ApplicationController
 
     def checkout
         @user = User.new
-        # add checkout code here
     end
 
     def edit
