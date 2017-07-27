@@ -57,9 +57,13 @@
     </div>
 
     <% if product.inactive %>
-        <div class="submit_deactivate">
-            <%= link_to "Activate", activate_path(product), method: :patch, :class => "waves-effect waves-light btn" %> 
-        </div>
+        <% if product.quantity > 0 %>
+            <div class="submit_deactivate">
+                <%= link_to "Activate", activate_path(product), method: :patch, :class => "waves-effect waves-light btn" %> 
+            </div>
+        <% else %>
+            <p id="notice">To activate, quantity needs to be greater than 0!</p>
+        <% end %>
     <% else %>
         <div class="submit_deactivate">
             <%= link_to "Deactivate", product_path(product), method: :delete, :class => "waves-effect waves-light btn" %> 

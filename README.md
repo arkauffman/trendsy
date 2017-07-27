@@ -5,20 +5,14 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* An intro/description of the app
 
-* System dependencies
+* Screenshot(s)
 
-* Configuration
+* Explanations of the technologies used
 
-* Database creation
+* Getting Started section with: link to your deployed app, link to Trello
 
-* Database initialization
+* Unsolved problems (if any)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Future (Ice Box) Features
