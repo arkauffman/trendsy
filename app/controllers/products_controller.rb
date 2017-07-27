@@ -15,11 +15,12 @@ class ProductsController < ApplicationController
                     @products = Product.where(inactive: false, description: params[:filter])
                 end
             elsif (params[:filter] == 'Inactive')
-                if @products.count == 0
-                    flash[:notice] = "There are no inactive products!"
-                else
+                @products = Product.where(inactive: true)
+                if @products.count != 0
                     flash[:notice] = ""
                     @products = Product.where(inactive: true)
+                else
+                    flash[:notice] = "There are no inactive products!"
                 end
             else 
                 flash[:notice] = ""
