@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     end
 
     def profile
-        flash[:notice] = ""
+        # flash[:notice] = ""
         @user = User.find(params[:id])
     end
 
