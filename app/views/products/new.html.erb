@@ -18,7 +18,7 @@
     <div class="row">
         <div class="input-field col s6 offset-s1">
             <%= f.label :price %>
-            <%= f.number_field :price, required: true, :value => (number_with_precision(f.object.price, :precision => 2)) %>
+            <%= f.number_field :price, required: true, :step => "0.01" %>
         </div>
     </div>
     <div class="row">
