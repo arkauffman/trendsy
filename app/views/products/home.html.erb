@@ -22,7 +22,7 @@
         </ul>     
         <% @products.each do |product| %>
             <div class="images">
-                <%= link_to image_tag(product.image.url, :class => "img-responsive", :width => "275"), product_path(product) %>
+                <%= link_to image_tag(product.image.url, :class => "img-responsive", :width => "275", :height => "275"), product_path(product) %>
             </div>
         <% end %>
     </div>
