@@ -21,7 +21,7 @@ body {
 }
 
 .nav-wrapper {
-    background-color: #cdc9c9;
+    background-color: #f2ddde;
 }
 
 h1 {
@@ -131,13 +131,18 @@ img {
     padding: 5px;
 } 
 
+input[type]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #f7cac9;
+    box-shadow: 0 1px 0 0 #f7cac9;
+}
+
 /* label color */
 .input-field label {
-    color: #ffab91;
+    color: #ef9a9a;
 }
 /* label focus color */
 .input-field input[type=text]:focus + label {
-    color: #ff8a65;
+    color: #ef9a9a;
 }
 /* label underline focus color */
 .input-field input[type=text]:focus {
@@ -231,7 +236,7 @@ td, th {
 }
 
 .btn, .btn-large {
-    background-color: #ffab91;
+    background-color: #f7cac9;
 }
 
 .dropdown-button {

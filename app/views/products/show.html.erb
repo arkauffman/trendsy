@@ -28,6 +28,8 @@
     </div>
 </div>
 
-<div class="upload_submit">
-    <%= link_to "Add to Cart", product_line_items_path(@product), method: :post, :class => "waves-effect waves-light btn" %>
-</div>
+<% if current_user %>
+    <div class="upload_submit">
+        <%= link_to "Add to Cart", product_line_items_path(@product), method: :post, :class => "waves-effect waves-light btn" %>
+    </div>
+<% end %>
