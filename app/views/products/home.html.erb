@@ -21,9 +21,11 @@
             <li><%= link_to 'Kids', home_path(filter: 'Kids') %></li>   
         </ul>     
         <% @products.each do |product| %>
-            <div class="images">
-                <%= link_to image_tag(product.image.url, :class => "img-responsive", :width => "275", :height => "275"), product_path(product) %>
-            </div>
+            <% if product.quantity > 0 %>
+                <div class="images">
+                    <%= link_to image_tag(product.image.url, :class => "img-responsive", :width => "275", :height => "275"), product_path(product) %>
+                </div>
+            <% end %>
         <% end %>
     </div>
 </div>

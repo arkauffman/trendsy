@@ -85,9 +85,13 @@ class ProductsController < ApplicationController
     def create
         @product = Product.new(product_params)
         @product.user = current_user
-    
+
         if @product.save
             flash[:notice] = "You have successfully added a product!"
+            if @product.quantity == 0
+                @product.inactive = true
+                @product.save
+            end
             redirect_to root_path
         else 
             render :new
