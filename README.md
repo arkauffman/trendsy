@@ -13,11 +13,11 @@ application.**
 ![Home](app/assets/images/home.png)
 * Above is my default home page that includes the active images of products users have uploaded.
 
-![Upload](app/assets/images/upload.png)
+![Upload](/app/assets/images/upload.png)
 * Above is the upload page in which a logged in user can upload a title, price, quantity, description, and image for a product. All fields are required, if a quantity is set to 0, it is an inactive product and will not be shown on the home page, and if an image is not specified, a default image will be provided.
-![Cart](app/assets/images/cart.png)
+![Cart](/app/assets/images/cart.png)
 * Above is the default credit card and shipping/billing information for a user, and below the deactivated form is a table that holds information about their current cart.
-![History](app/assets/images/history.png)
+![History](/app/assets/images/history.png)
 * Above is the order history page in which a user can see their current cart, as well as look at their past orders sorted by date.
 
 ### Technologies used
