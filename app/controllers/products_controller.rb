@@ -30,15 +30,17 @@ class ProductsController < ApplicationController
     end
 
     def home 
-        # flash[:notice] = ""
+        flash[:notice] = ""
         @products = Product.where(inactive: false, description: params[:filter])
         if params[:filter] && (params[:filter] != 'All')
             if @products.count == 0
                 flash[:notice] = "There are no products with that description!"
             else
+                flash[:notice] = ""
                 @products = Product.where(inactive: false, description: params[:filter])
             end
         else
+            flash[:notice] = ""
             @products = Product.where(inactive: false)
         end
     end
@@ -56,13 +58,21 @@ class ProductsController < ApplicationController
 
     def show
         @product = Product.find(params[:id])
+        if @product.quantity == 0
+            @product.inactive = true
+            @product.save
+        end
     end
 
     def update
         @product = Product.where(user: current_user).find(params[:id])
-
         if @product.update_attributes(product_params)
-            redirect_to products_path
+            if @product.quantity == 0
+                flash[:notice] = "The quantity needs to be greater than 0!"
+                render :edit
+            else
+                redirect_to products_path
+            end
         else
             render :edit
         end
