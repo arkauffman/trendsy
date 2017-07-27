@@ -21,8 +21,8 @@
   </div>
   <div class="row">
     <div class="input-field col s6 offset-s1">
-      <%= f.label :description, :class => "active" %>
-      <%= f.text_field :description %>
+      <%= f.select :description, options_for_select([['Clothing'], ['Jewelry'], ['Crafts'], ['Entertainment'], ['Home'], ['Bathroom'], ['Kids']], params[:description]) %>
+      <%= f.label :description %>
     </div>
   </div>
   <div class="row">
@@ -34,3 +34,9 @@
     <%= f.submit "Update Product", :class => "waves-effect waves-light btn" %>
   </div>   
 <% end %>
+
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
