@@ -3,8 +3,8 @@ class ProductsController < ApplicationController
 
     def index
         if Product.where(user: current_user).count == 0
-            redirect_to root_path
             flash[:notice] = "You have no products!"
+            redirect_to profile_path(current_user)
         else 
             @products = Product.where(inactive: false, description: params[:filter])
             if params[:filter] && (params[:filter] != 'All') && (params[:filter] != 'Inactive')
@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
     end
 
     def home 
-        flash[:notice] = ""
+        # flash[:notice] = ""
         @products = Product.where(inactive: false, description: params[:filter])
         if params[:filter] && (params[:filter] != 'All')
             if @products.count == 0

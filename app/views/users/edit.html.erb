@@ -40,9 +40,17 @@
     </div>
   </div>
   <div class="row">
-    <div class="input-field s5 col">
-      <%= f.file_field :image %><br><br>
-    </div>
+      <div class="input-field col s6 offset-s1">
+          <div class="input-field file-field">
+              <div class="btn">
+                  <span> Upload an image </span>
+                  <%= f.file_field :image %><br><br>  
+              </div>
+              <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+              </div>
+          </div>
+      </div>
   </div>
   <div class="upload_submit">
     <%= f.submit "Update User", :class => "waves-effect waves-light btn" %>
