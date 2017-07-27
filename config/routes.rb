@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root to: 'products#home'
   get 'profile/:id', to: 'users#profile', as: :profile
   get 'manage', to: 'users#manage'
+  get 'profile/:id/edit', to: 'users#edit', as: :edit
   delete 'users/:id', to: 'users#destroy', as: :destroy
   get 'home', to: 'products#home', as: :home
+  patch 'products/:id/active', to: 'products#activate', as: :activate
   
   resources :users
   resources :products do

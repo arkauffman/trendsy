@@ -11,7 +11,11 @@
         <% total = 0 %>
         <% @orders.each do |order| %>
             <tr>
-                <td><%= link_to order.updated_at.to_formatted_s(:long), order_path(order) %></td>
+                <% if order.is_cart %>
+                    <td><%= link_to order.updated_at.to_formatted_s(:long), order_path(order) %><i class="material-icons">shopping_cart</i></td>
+                <% else %>
+                    <td><%= link_to order.updated_at.to_formatted_s(:long), order_path(order) %></td>
+                <% end %>
             </tr>
         <% end %>
         </tbody>

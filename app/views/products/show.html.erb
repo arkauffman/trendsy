@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col s12">
                 <label class="show"> Price </label>
-                <input disabled value="<%= @product.price %>" id="disabled" type="text" class="validate">
+                <input disabled value="$<%= '%.2f' % @product.price %>" id="disabled" type="text" class="validate">
             </div>
         </div>
         <div class="row">

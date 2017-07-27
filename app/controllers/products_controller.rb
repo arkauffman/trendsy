@@ -2,16 +2,44 @@ class ProductsController < ApplicationController
     before_action :authorize, except: [:index, :show, :home]
 
     def index
-        if Product.find_by(params[:user]).nil?
+        if Product.where(user: current_user).count == 0
             redirect_to root_path
             flash[:notice] = "You have no products!"
         else 
-            @products = Product.where(user: current_user)
+            @products = Product.where(inactive: false, description: params[:filter])
+            if params[:filter] && (params[:filter] != 'All') && (params[:filter] != 'Inactive')
+                if @products.count == 0
+                    flash[:notice] = "There are no products with that description!"
+                else
+                    flash[:notice] = ""
+                    @products = Product.where(inactive: false, description: params[:filter])
+                end
+            elsif (params[:filter] == 'Inactive')
+                if @products.count == 0
+                    flash[:notice] = "There are no inactive products!"
+                else
+                    flash[:notice] = ""
+                    @products = Product.where(inactive: true)
+                end
+            else 
+                flash[:notice] = ""
+                @products = Product.where(inactive: false, user: current_user)
+            end
         end
     end
 
     def home 
-        @products = Product.all
+        flash[:notice] = ""
+        @products = Product.where(inactive: false, description: params[:filter])
+        if params[:filter] && (params[:filter] != 'All')
+            if @products.count == 0
+                flash[:notice] = "There are no products with that description!"
+            else
+                @products = Product.where(inactive: false, description: params[:filter])
+            end
+        else
+            @products = Product.where(inactive: false)
+        end
     end
 
     def edit
@@ -20,8 +48,9 @@ class ProductsController < ApplicationController
 
     def destroy
         @product = Product.find(params[:id])
-        @product.destroy
-        redirect_to profile_path(current_user), notice: 'Product was successfully deleted.'
+        @product.inactive = true
+        @product.save
+        redirect_to products_path, notice: 'Product was marked inactive.'
     end
 
     def show
@@ -52,6 +81,13 @@ class ProductsController < ApplicationController
         else 
             render :new
         end
+    end
+
+    def activate
+        @product = Product.find(params[:id])
+        @product.inactive = false
+        @product.save
+        redirect_to products_path
     end
 
     private

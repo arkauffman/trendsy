@@ -44,8 +44,8 @@
                 <td><%= item.product.id %></td>
                 <td><%= item.product.title %></td>
                 <td><%= item.quantity %></td>
-                <td>$<%= item.product.price %></td>
-                <td>$<%= (item.product.price * item.quantity) %></td>
+                <td>$<%= '%.2f' % item.product.price %></td>
+                <td>$<%= '%.2f' % (item.product.price * item.quantity) %></td>
             </tr>
 
             <% total = total + (item.product.price * item.quantity) %>
@@ -55,7 +55,7 @@
 </table>
 
 <div class="total">
-    Total: $<%= total %>
+    Total: $<%= '%.2f' % total %>
 </div>
 
 <div class="upload_submit">

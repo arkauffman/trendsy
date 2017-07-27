@@ -25,7 +25,6 @@ body {
 }
 
 h1 {
-    font-family: 'Fresca', sans-serif;
     text-align: center;
     font-size: 50px;
     font-weight: 600;
@@ -37,6 +36,7 @@ h3 {
     padding-left: 48px;
     font-weight: 600;
     padding-bottom: 20px;
+    text-shadow: 2px 2px grey;
 }
 
 h4 {
@@ -45,13 +45,14 @@ h4 {
     font-size: 30px;
     font-weight: 500;
     line-height: 40px;
+    text-shadow: 1px 1px grey;
 }
 
 h5 {
     padding-left: 48px;
 }
 
-h6 {
+h6, #welcome {
     padding: 10px;
 }
 
@@ -71,12 +72,18 @@ nav i:hover {
     padding-top: 75px;
 }
 
-.row {
+.submit_deactivate {
+    text-align: center;
+    padding: 10px;
+    padding-top: 10px;
+}
+
+.row, .message {
     text-align: center;
 }
 
 input[type=submit], #checkout-submit, a.waves-effect {
-    width: 10em;  height: 3em;
+    width: 11em;  height: 2.5em;
 } 
 
 #user_image, #product_image {
@@ -105,17 +112,9 @@ a:hover {
     font-size: 15px;
 }
 
-#welcome {
-    padding: 10px;
-}
-
 ul, li {
     float: right;
     list-style-type: none;
-}
-
-.message {
-    text-align: center;
 }
 
 img {  
@@ -125,10 +124,6 @@ img {
 
 .img-responsive, img {
      border: 6px solid white; 
-}
-
-.nav {
-    padding: 0px 15px;
 }
 
 .space { 
@@ -164,14 +159,9 @@ img {
     color: #ff5722;
 }
 
-@media (min-width: 768px) {
-    .navbar-right {
-        margin-right: 0px
-    }
-}
-
 .row.container.valign-wrapper {
     margin-bottom: 0px;
+    margin-top: -15px;
 }
 
 #info {
@@ -206,7 +196,7 @@ input {
     margin-bottom: 20px;
 }
 
- a.waves-effect {
+a.waves-effect {
     padding-bottom: 30px;  
     padding: 1px;
     height: 36px;
@@ -240,12 +230,26 @@ td, th {
     margin-left: 52px;
 }
 
-/* #your_orders {
-    width: 20%;
-    margin-left:auto; 
-    margin-right:auto;
-} */
-
 .btn, .btn-large {
     background-color: #ffab91;
+}
+
+.dropdown-button {
+    margin-bottom: 30px;
+    margin-left: 68px;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+    padding: 14px 8px;
+}
+
+.dropdown-content {
+    margin-left: 162px;
+    min-width: 120px;
+}
+
+@media (min-width: 768px) {
+    .navbar-right {
+        margin-right: 0px
+    }
 }

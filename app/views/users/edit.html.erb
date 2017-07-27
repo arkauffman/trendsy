@@ -3,12 +3,10 @@
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
       <div class="error_messages">
-        <h2>Form is invalid</h2>
-        <ul>
-          <% for message in @user.errors.full_messages %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+        <h5>Form is invalid</h5>
+        <% for message in @user.errors.full_messages %>
+          <div class="messages"><%= message %></div>
+        <% end %>
       </div>
   <% end %>
   <div class="row">
@@ -31,7 +29,7 @@
   </div>
   <div class="row">
     <div class="input-field col s6 offset-s1">
-      <%= f.label :password %>
+      <%= f.label :password, :class => "active" %>
       <%= f.password_field :password %>
     </div>
   </div> 

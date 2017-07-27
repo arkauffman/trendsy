@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+    before_action :authorize, only: [:index, :show, :checkout]
+
     def index
         @orders = current_user.orders.order(created_at: :desc)
     end

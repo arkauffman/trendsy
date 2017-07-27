@@ -9,8 +9,6 @@
             <% end %>
         </div>
     <% end %>
-
-
     <div class="row">
         <div class="input-field col s6 offset-s1">
             <%= f.label :title %>
@@ -20,7 +18,7 @@
     <div class="row">
         <div class="input-field col s6 offset-s1">
             <%= f.label :price %>
-            <%= f.text_field :price, required: true %>
+            <%= f.number_field :price, required: true, :value => (number_with_precision(f.object.price, :precision => 2)) %>
         </div>
     </div>
     <div class="row">
@@ -31,17 +29,22 @@
     </div>
     <div class="row">
         <div class="input-field col s6 offset-s1">
+            <%= f.select :description, options_for_select([['Clothing'], ['Jewelry'], ['Crafts'], ['Entertainment'], ['Home'], ['Kids']], params[:description]) %>
             <%= f.label :description %>
-            <%= f.text_field :description %>
         </div>
     </div>
     <div class="row">
       <div class="input-field s5 col">
-        <%= f.file_field :image %><br><br>
+        <%= f.file_field :image %><br><br>  
       </div>
     </div>
-
     <div class="upload_submit">
         <%= submit_tag "Upload", :class => "waves-effect waves-light btn" %>
     </div>
 <% end %>
+
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>

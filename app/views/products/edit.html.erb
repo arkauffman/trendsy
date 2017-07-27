@@ -10,7 +10,7 @@
   <div class="row">
     <div class="input-field col s6 offset-s1">
         <%= f.label :price, :class => "active" %>
-        <%= f.text_field :price %>
+        <%= f.number_field :price, :value => (number_with_precision(f.object.price, :precision => 2) || 0) %>
       </div>
   </div>
   <div class="row">
@@ -26,13 +26,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="input-field s5 col">
+    <div class="input-field col s3">
       <%= f.file_field :image %><br><br>
     </div>
   </div>
-
   <div class="upload_submit">
-    <%= f.submit "Edit Product", :class => "waves-effect waves-light btn" %>
-    <%= link_to "Delete Product", product_path(@product), method: :delete, :class => "waves-effect waves-light btn" %> 
+    <%= f.submit "Update Product", :class => "waves-effect waves-light btn" %>
   </div>   
 <% end %>
