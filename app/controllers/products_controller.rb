@@ -6,19 +6,19 @@ class ProductsController < ApplicationController
             flash[:notice] = "You have no products!"
             redirect_to profile_path(current_user)
         else 
-            @products = Product.where(inactive: false, description: params[:filter])
+            @products = Product.where(user: current_user, inactive: false, description: params[:filter])
             if params[:filter] && (params[:filter] != 'All') && (params[:filter] != 'Inactive')
                 if @products.count == 0
                     flash[:notice] = "There are no products with that description!"
                 else
                     flash[:notice] = ""
-                    @products = Product.where(inactive: false, description: params[:filter])
+                    @products = Product.where(user: current_user, inactive: false, description: params[:filter])
                 end
             elsif (params[:filter] == 'Inactive')
-                @products = Product.where(inactive: true)
+                @products = Product.where(user: current_user, inactive: true)
                 if @products.count != 0
                     flash[:notice] = ""
-                    @products = Product.where(inactive: true)
+                    @products = Product.where(user: current_user, inactive: true)
                 else
                     flash[:notice] = "There are no inactive products!"
                 end
