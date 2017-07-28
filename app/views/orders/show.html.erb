@@ -28,7 +28,7 @@
 
 <table class="highlight">
     <div class="col s8">
-    <p id="notice"><%= notice %></p>
+      <p id="notice"><%= notice %></p>
         <thead>
             <tr>
                 <th>ID</th>
@@ -40,8 +40,8 @@
             </tr>
         </thead>
         <tbody>
-        <% total = 0 %>
-        <% @line_items.each do |item| %>
+          <% total = 0 %>
+          <% @line_items.each do |item| %>
             <tr>
                 <td><%= item.product.id %></td>
                 <td><%= item.product.title %></td>
@@ -60,9 +60,9 @@
                 <td>$<%= '%.2f' % (item.product.price * item.quantity) %></td>
             </tr>
             <% total = total + (item.product.price * item.quantity) %>
-        <% end %>
+          <% end %>
         </tbody>
-        </div>
+    </div>
 </table>
 
 <div class="total">

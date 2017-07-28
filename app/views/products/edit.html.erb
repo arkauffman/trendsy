@@ -2,42 +2,50 @@
 <p id="notice"><%= notice %></p>
 
 <%= form_for @product do |f| %>
-  <div class="row">
-    <div class="input-field col s6 offset-s1"> 
-      <%= f.label :title, :class => "active" %>
-      <%= f.text_field :title %>
+    <% if @product.errors.any? %>
+        <div class="error_messages">
+            <h5>Form is invalid</h5>
+            <% for message in @product.errors.full_messages %>
+            <div class="messages"><%= message %></div>
+            <% end %>
+        </div>
+    <% end %>
+    <div class="row">
+        <div class="input-field col s6 offset-s1"> 
+        <%= f.label :title, :class => "active" %>
+        <%= f.text_field :title %>
+        </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s6 offset-s1">
-        <%= f.label :price, :class => "active" %>
-        <%= f.number_field :price, :step => "0.01" %>
-      </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s6 offset-s1">
-        <%= f.label :quantity, :class => "active" %>
-        <%= f.text_field :quantity %>
+    <div class="row">
+        <div class="input-field col s6 offset-s1">
+            <%= f.label :price, :class => "active" %>
+            <%= f.number_field :price, :step => "0.01" %>
+        </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s6 offset-s1">
-      <%= f.select :description, options_for_select([['Clothing'], ['Jewelry'], ['Crafts'], ['Entertainment'], ['Home'], ['Bathroom'], ['Kids']], params[:description]) %>
-      <%= f.label :description %>
+    <div class="row">
+        <div class="input-field col s6 offset-s1">
+            <%= f.label :quantity, :class => "active" %>
+            <%= f.text_field :quantity %>
+        </div>
     </div>
-  </div>
-  <div class="row">
-      <div class="input-field col s6 offset-s1">
-          <div class="input-field file-field">
-              <div class="btn">
-                  <span> Upload an image </span>
-                  <%= f.file_field :image %><br><br>  
-              </div>
-              <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text">
-              </div>
-          </div>
-      </div>
+    <div class="row">
+        <div class="input-field col s6 offset-s1">
+        <%= f.select :description, options_for_select([['Clothing'], ['Jewelry'], ['Crafts'], ['Entertainment'], ['Home'], ['Bathroom'], ['Kids']], params[:description]) %>
+        <%= f.label :description %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6 offset-s1">
+            <div class="input-field file-field">
+                <div class="btn">
+                    <span> Upload an image </span>
+                    <%= f.file_field :image %><br><br>  
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+        </div>
   </div>
   <div class="upload_submit">
     <%= f.submit "Update Product", :class => "waves-effect waves-light btn" %>

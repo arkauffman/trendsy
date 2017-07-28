@@ -11,9 +11,5 @@ class ApplicationController < ActionController::Base
 
     def authorize
       redirect_to login_path, alert: 'Not authorized - you must be loggged in!' if current_user.nil?
-
-      # if current_user.id <> @user.id ???
-      # if current_user.id is equal to item id, then allow you to edit, delete, and add (check this in
-      # controllers) in order to allow
     end
 end

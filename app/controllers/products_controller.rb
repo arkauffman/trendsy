@@ -85,7 +85,6 @@ class ProductsController < ApplicationController
     def create
         @product = Product.new(product_params)
         @product.user = current_user
-
         if @product.save
             flash[:notice] = "You have successfully added a product!"
             if @product.quantity == 0
@@ -109,5 +108,4 @@ class ProductsController < ApplicationController
     def product_params 
         params.require(:product).permit(:title, :price, :quantity, :description, :image)
     end
-
 end

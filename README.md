@@ -53,3 +53,6 @@ application.**
 * Add a feature where a product can have multiple images.
 * Add a feature where an item can have different colors or types that a user could add to their cart.
 * Adding more categories/sub-categories for products.
+* Favorite an item to add to your wish list.
+* Possible reward points earned every time you shopping.
+* Add a sale/promotion model.

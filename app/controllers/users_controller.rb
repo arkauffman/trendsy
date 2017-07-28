@@ -35,7 +35,6 @@ class UsersController < ApplicationController
     end
 
     def profile
-        # flash[:notice] = ""
         @user = User.find(params[:id])
     end
 
@@ -53,7 +52,6 @@ private
         params.require(:user).permit(:first_name, :last_name, :email, :image, :password, :password_confirmation)
     end
 
-    # Use callbacks to share common setup or constraints between actions.
     def set_user
         @user = User.find(params[:id])
     end

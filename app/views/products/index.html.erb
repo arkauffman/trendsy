@@ -1,5 +1,4 @@
 <h3> Your Products </h3>
-
 <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Filter</a>
 <p id="notice"><%= notice %></p>
 
@@ -55,7 +54,6 @@
                 </div>
         </div>
     </div>
-
     <% if product.inactive %>
         <% if product.quantity > 0 %>
             <div class="submit_deactivate">
@@ -69,7 +67,6 @@
             <%= link_to "Deactivate", product_path(product), method: :delete, :class => "waves-effect waves-light btn" %> 
         </div>
     <% end %>
-
 <% end %>
 
 <script>

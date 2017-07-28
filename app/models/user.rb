@@ -9,6 +9,8 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
     validates :password, :length => {:within => 4..15}, :if => :password
+    validates :first_name, presence: true
+    validates :last_name, presence: true
 
     def cart
         order = Order.find_by(user: self, is_cart: true)
