@@ -40,6 +40,16 @@ application.**
     * Used to store information about a user, product, and their cart.
 * jQuery
     * Used to filter products with dropdown menu functionality.
+* VS Code
+    * Used to implement the app.
+* Bash
+    * Used to update Github and Heroku.
+* Heroku
+    * Used to deploy the web application.
+* GitHub
+    * Used to store a respository containing my code.
+* Git
+    * Used with Bash to update Github and Heroku.
 
 ### Links
 * Check out Trendsy [here](https://trendsy.herokuapp.com/).
