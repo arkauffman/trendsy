@@ -47,6 +47,7 @@ class ProductsController < ApplicationController
 
     def edit
         @product = Product.find(params[:id])
+        # @product.description = params[@product.description] unless params[@product.description].nil?
     end
 
     def destroy

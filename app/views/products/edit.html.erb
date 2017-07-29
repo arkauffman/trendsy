@@ -30,7 +30,7 @@
     </div>
     <div class="row">
         <div class="input-field col s6 offset-s1">
-        <%= f.select :description, options_for_select([[@product.description],['Clothing'], ['Jewelry'], ['Crafts'], ['Entertainment'], ['Home'], ['Bathroom'], ['Kids']], params[:description]) %>
+        <%= f.select :description, options_for_select([['Clothing'], ['Jewelry'], ['Crafts'], ['Entertainment'], ['Home'], ['Bathroom'], ['Kids']], :selected => @product.description) %>
         <%= f.label :description %>
         </div>
     </div>
